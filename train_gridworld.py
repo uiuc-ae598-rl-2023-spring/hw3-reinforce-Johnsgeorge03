@@ -22,7 +22,7 @@ n_train_eps = 50000
 
 ## DIRECTORIES
 import os
-test_dir            = 'test6_50000eps_100units_hard/'
+test_dir            = 'test7/'
 weight_dir          = test_dir + 'NN_weights/' + opt_type + '/'
 fig_dir             = test_dir + 'figures/' + opt_type +'/'
 reward_dir          = test_dir + 'rewards/'
@@ -32,7 +32,7 @@ os.makedirs(weight_dir, exist_ok=True)
 os.makedirs(reward_dir, exist_ok=True)
 
 ## TRAIN
-env         = gridworld.GridWorld(hard_version=True)
+env         = gridworld.GridWorld(hard_version=False)
 agent       = Agent(env, hidden_size, lr, gamma, device, opt_type)
 all_rewards = agent.reinforce(n_train_eps, 1, weight_dir)
 
